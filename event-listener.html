@@ -7,15 +7,22 @@
   </head>
   <body>
     <div></div>
-    <!-- we have event listener and event handler. html has alot of eventlister and they all start with on, for example onclick,
+    <!-- we have event listener and event handler. html has alot of different eventlisters and they all start with on, for example onclick which is an event,
 we also have  onabort etc. Also the event listerner must have an event handler, The event handler is a function that will
 occur when an event listener is called, for example, do this particular function when onclick event listerner is callad in html. -->
     <button id="btn1" onclick="clicks()">click-me1</button>
+    <button id="btn2">click-me2</button>
 
     <script>
       clicks = () => {
         alert("clicks");
       };
+      var butn = document.getElementById("btn2");
+ //in the case of javaScript, addEventListener() is a method that is used to attach an event handler to a specified
+ // html element directly from javascript.
+      butn.addEventListener("click", function () {
+        clicks();
+      });
     </script>
   </body>
 </html>
