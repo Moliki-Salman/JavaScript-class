@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <button id="btn">button</button>
+    <script>
+      clicks = () => {
+        alert("clicks");
+      };
+      var btn = document.getElementById("btn");
+      btn.style.backgroundColor = "black";
+      btn.style.color = "white";
+      // btn.onclick = function () {
+      //     clicks()
+      // }
+      btn.addEventListener("click", function () {
+        clicks();
+      });
+      var dv = document.createElement("div");
+      dv.style.width = "100px";
+      dv.style.height = "100px";
+      dv.style.backgroundColor = "red";
+      document.body.appendChild(dv);
+      dv.addEventListener("click", clicks);
+    </script>
+  </body>
+</html>
