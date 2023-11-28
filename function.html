@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        width: 100px;
+      }
+      .container {
+        display: flex;
+      }
+      .item:hover {
+        background-color: red;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item" id="coke">
+        <img src="images/coke.webp" class="item" />
+      </div>
+      <div class="item" id="fanta">
+        <img src="images/fanta.webp" class="item" />
+      </div>
+    </div>
+    <div>
+      <p>
+        <input id="amount" type="number" placeholder="amount" />
+      </p>
+      <p>
+        <input id="quantity" type="number" placeholder="quantity" />
+      </p>
+      <button id="enter">Enter</button>
+    </div>
+    <script>
+      var cokeBtn = document.getElementById("coke");
+      var fantaBtn = document.getElementById("fanta");
+      var amount = document.getElementById("amount");
+      var quantity = document.getElementById("quantity");
+      cokeBtn.addEventListener("click", function () {
+        alert("coke selected, price : 250 ");
+      });
+      fantaBtn.addEventListener("click", function () {
+        alert("fanta selected, price : 350 ");
+      });
+      processor = (sDrink, amount, quantity) => {
+        let res = "";
+        if (sDrink == "coke") {
+          if (amount >= 250 * quantity) {
+          } else {
+            res = "Invalid amount";
+            return res;
+          }
+        }
+      };
+      pusher = (qty) => {
+        for (let i = 0; i < qty; i++) {
+          console.log("coke");
+        }
+      };
+      pusher(10);
+    </script>
+  </body>
+</html>
