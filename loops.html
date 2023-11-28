@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .blackbox {
+        height: 200px;
+        width: 200px;
+        background-color: black;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+      .whitebox {
+        height: 200px;
+        width: 200px;
+        background-color: white;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-right: 10px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="res"></div>
+
+    <script>
+      var container = document.getElementById("res");
+      var blackbox = "<div class='blackbox'></div>";
+      var whitebox = "<div class='whitebox'></div>";
+      var limit = 16;
+      var b = 0;
+
+      /* while (b < limit) {
+        if (b % 2 == 0) {
+          container.innerHTML = container.innerHTML + whitebox;
+        } else {
+          container.innerHTML = container.innerHTML + blackbox;
+        }
+        b = b + 1;
+      } */
+
+      for (i = 0; i < limit; i++) {
+        if (i % 2 == 0) {
+          container.innerHTML =
+            container.innerHTML + `<div class='whitebox'>${i}</div>`;
+        } else {
+          container.innerHTML =
+            container.innerHTML + `<div class='blackbox'>${i}</div>`;
+        }
+      }
+
+      var container = document.getElementById("res");
+      // var blackbox = "<div class='whitebox'></div>";
+      // var whitebox = "<div class='whitebox'></div>";
+      var blackbox = document.createElement("div");
+      blackbox.style.height = "100px";
+      blackbox.style.width = "100px";
+      blackbox.style.backgroundColor = " red";
+      container.appendChild(blackbox);
+      var limit = 16;
+      var b = 0;
+    </script>
+  </body>
+</html>

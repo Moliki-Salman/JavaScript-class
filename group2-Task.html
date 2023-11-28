@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <form method="get" action="" onsubmit="event.preventDefault(); calGrade();">
+      <input type="text" id="score" />
+      <div id="result">Student Score</div>
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      var studentScore = document.getElementById("score");
+      var result = document.getElementById("result");
+
+      var calGrade = function () {
+        var grade = parseInt(studentScore.value);
+        if (grade < 0 || grade > 100) {
+          result.innerHTML = "not a valid grade";
+        } else {
+          if (grade >= 90 && grade <= 100) {
+            result.innerHTML = "student grade is: " + "A";
+          }
+          if (grade >= 80 && grade <= 89) {
+            result.innerHTML = "student grade is: " + "B";
+          }
+          if (grade >= 70 && grade <= 79) {
+            result.innerHTML = "student grade is: " + "C";
+          }
+          if (grade >= 60 && grade <= 69) {
+            result.innerHTML = "student grade is: " + "D";
+          }
+          if (grade >= 0 && grade <= 59) {
+            result.innerHTML = "student grade is: " + "F";
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
+<!-- Objective:
+The objective of this case study is to create a JavaScript program that prompts the user to enter a numeric score (between 1 and 100) and generates a corresponding letter grade using if statements.
+Requirements:
+Create an HTML file with a simple form that takes a student's score as input.
+Use JavaScript to  evaluate the score, and assign a letter grade based on the following criteria:
+A: 90-100
+B: 80-89
+C: 70-79
+D: 60-69
+F: 0-59
+
+Ensure that the program handles invalid inputs gracefully (e.g., scores less than 0 or greater than 100) and provides appropriate feedback to the user.
+Display the generated letter grade on the webpage. -->

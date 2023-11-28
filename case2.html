@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <form
+      id="voteform"
+      method="get"
+      action=""
+      onsubmit="event.preventDefault(); checkAge(); "
+    >
+      <input type="text" name="userage" id="userage" />
+      <button type="submit">Check</button>
+      <div id="result">Result</div>
+    </form>
+    <script>
+      var age = document.getElementById("userage");
+      var res = document.getElementById("result");
+      var checkAge = function () {
+        fAge = parseInt(age.value);
+        if (fAge <= 0 || isNaN(fAge)) {
+          res.innerHTML = fAge + " " + "Invalid age";
+          age.value = " ";
+        } else {
+          if (fAge >= 18) {
+            res.innerHTML = fAge + " " + "Allowed age";
+            age.value = "";
+          } else {
+            res.innerHTML = fAge + " " + "not allowed to vote";
+            age.value = "";
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

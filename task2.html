@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced School Acceptance System</title>
+    <style>
+      body {
+        background-color: #5e5b5b;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .contain {
+        text-align: center;
+        background-color: #eee;
+        width: 50%;
+        padding: 100px 50px;
+        margin-top: 50px;
+        border-radius: 10px;
+      }
+
+      input {
+        padding: 10px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        background-color: rgb(54, 54, 54);
+        border: 2px rgb(54, 54, 54) solid;
+        border-radius: 7px;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      button:hover {
+        background-color: rgb(131, 118, 118);
+      }
+
+      #result {
+        margin: 20px;
+        font-size: 1.3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <form
+        action=""
+        method="get"
+        onsubmit="event.preventDefault(); schoolAcceptance();"
+      >
+        <div>
+          <p><label for="choiceProgram">Choice of Program:</label></p>
+          <input
+            type="text"
+            name="choiceProgram"
+            id="choiceProgram"
+            placeholder="Enter course"
+          />
+        </div>
+
+        <div>
+          <p><label for="studentGrade">Grade:</label></p>
+          <input type="text" placeholder="Enter your grade" id="studentGrade" />
+        </div>
+
+        <div>
+          <p><label for="">Accumulated Score:</label></p>
+          <input type="text" id="studentScore" placeholder="Enter score" />
+        </div>
+
+        <button>Check Status</button>
+
+        <div id="result"></div>
+      </form>
+    </div>
+    <script>
+      var accumulatedScore = document.getElementById("studentScore");
+      var grade = document.getElementById("studentGrade");
+      var choice = document.getElementById("choiceProgram");
+      var res = document.getElementById("result");
+
+      var schoolAcceptance = function () {
+        fScore = parseInt(accumulatedScore.value);
+        fGrade = parseInt(grade.value);
+        fChoice = choice.value;
+
+        if (fScore < 800 || fGrade < 0 || isNaN(fScore) || isNaN(fGrade)) {
+          res.innerHTML = "Please enter a valid input.";
+          accumulatedScore.value = "";
+          grade.value = "";
+          choice.value = "";
+        } else {
+          if (fChoice === "Science") {
+            if (fGrade < 85) {
+              res.innerHTML = "Not Admitted";
+              accumulatedScore.value = "";
+              grade.value = "";
+              choice.value = ""; //the empty sting is used to clear the formpage after it has loaded the message in the res.innerHTML.
+            } else {
+              res.innerHTML = "Congratulations! Admitted";
+              accumulatedScore.value = "";
+              grade.value = "";
+              choice.value = "";
+            }
+          } else if (fChoice === "Arts") {
+            if (fGrade < 75) {
+              res.innerHTML = "Not Admitted";
+              accumulatedScore.value = "";
+              grade.value = "";
+              choice.value = "";
+            } else {
+              res.innerHTML = "Congratulations! Admitted";
+              accumulatedScore.value = "";
+              grade.value = "";
+              choice.value = "";
+            }
+          } else if (fChoice === "Commercial") {
+            if (fGrade < 80) {
+              res.innerHTML = "Not Admitted";
+              accumulatedScore.value = "";
+              grade.value = "";
+              choice.value = "";
+            } else {
+              res.innerHTML = "Congratulations! Admitted";
+              accumulatedScore.value = "";
+              grade.value = "";
+              choice.value = "";
+            }
+          } else {
+            res.innerHTML = "Enter a valid course.";
+            accumulatedScore.value = "";
+            grade.value = "";
+            choice.value = "";
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
