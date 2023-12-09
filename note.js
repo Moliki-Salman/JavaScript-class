@@ -36,7 +36,7 @@ event is an object that has its own functions and proeprties; event.
 
 
 while loop is used when you do not know the number of times;
-for loop is used when weknow the number of times;
+for loop is used when we know the number of times;
 
 document.createElement("div");the createElement() method is used to create an html element  directly from javascript;
 container.appendChild(blackbox): the .appendchild() method is used to push the blackbox element inside the container element which is an OBJECT ;
@@ -52,3 +52,17 @@ var blackbox = document.createElement("div");
 NOTE NOTE ended here
 
 */
+function addAndPopNames(namesArray, newNames) {
+  // Add new names to the array
+  namesArray.push(...newNames);
+
+  // Pop names from the array in order
+  while (namesArray.length > 0) {
+    const poppedName = namesArray.shift();
+    console.log(`Popped: ${poppedName}`);
+  }
+}
+const namesArray = [];
+const newNames = ["Alice", "Bob", "Charlie", "David"];
+
+addAndPopNames(namesArray, newNames);

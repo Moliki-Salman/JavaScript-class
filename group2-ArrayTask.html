@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="names"><button id="add">Add</button>
+<div class="container">
+    <ul>
+
+    </ul>
+</div>
+    <script>
+        let arrayNames = []
+        let addNames = function(arrayNames, inputNames) {
+            arrayNames.push(inputNames)
+            while (arrayNames.length > 0) {
+                let pop = arrayNames.shift()
+                console.log(`namesPopped: ${pop}`)
+            }
+        }
+        let inputNames = ["Sophie","Oluchi","Akachi"]
+        addNames(arrayNames, inputNames)
+    </script>
+</body>
+</html>

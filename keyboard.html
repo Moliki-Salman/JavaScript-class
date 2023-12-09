@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      body {
+        background-color: rgb(93, 123, 241);
+        margin: 0;
+        min-height: 100vh; /* makes the piano in the center of the page*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        display: flex; /* allows the keysboards to line side by side and not on top of each other  */
+      }
+
+      .white-box {
+        width: 100px;
+        height: 250px;
+        background-color: white;
+        border: 1px solid #030000;
+        align-items: center;
+        bottom: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .black-box {
+        width: 50px;
+        height: 180px;
+        background-color: black;
+        margin-left: -25px; /* to make the black key on top of the white, set the margin left and right to be negative by dividing the width into two and giving it negative value, it makes the black ontop of the white key */
+        margin-right: -25px;
+        z-index: 2; /* z-insex makes the black key stay ontop and inbetween the two white keys*/
+      }
+      .white-box:hover {
+        background: linear-gradient(to top, #ccc 10%, #fff 50%);
+      }
+      .black-box:hover {
+        background: linear-gradient(to top, #4d4c4c 10%, #3b3a3a 50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div data-sound="C" class="key white-box">C</div>
+      <div data-sound="BB1" class="key black-box"></div>
+      <div data-sound="D" class="key white-box push-w">D</div>
+      <div data-sound="BB2" class="key black-box"></div>
+      <div data-sound="E" class="key white-box">E</div>
+      <div data-sound="F" class="key white-box">F</div>
+      <div data-sound="BB3" class="key black-box"></div>
+      <div data-sound="G" class="key white-box">G</div>
+      <div data-sound="BB4" class="key black-box"></div>
+      <div data-sound="A" class="key white-box">A</div>
+      <div data-sound="BB5" class="key black-box"></div>
+      <div data-sound="B" class="key white-box">B</div>
+    </div>
+
+    <audio id="C" src="/sounds/1.wav"></audio>
+    <audio id="BB1" src="/sounds/2.wav"></audio>
+    <audio id="D" src="/sounds/11.wav"></audio>
+    <audio id="BB2" src="/sounds/3.wav"></audio>
+    <audio id="E" src="/sounds/13.wav"></audio>
+    <audio id="F" src="/sounds/12.wav"></audio>
+    <audio id="BB3" src="/sounds/5.wav"></audio>
+    <audio id="G" src="/sounds/6.wav"></audio>
+    <audio id="BB4" src="/sounds/7.wav"></audio>
+    <audio id="A" src="/sounds/8.wav"></audio>
+    <audio id="BB5" src="/sounds/9.wav"></audio>
+    <audio id="B" src="/sounds/10.wav"></audio>
+
+    <script>
+      const keyboard = document.querySelectorAll(".key");
+
+      keyboard.forEach((key) => {
+        key.addEventListener("click", () => playKeys(key));
+      });
+
+      function playKeys(key) {
+        const audio = document.getElementById(key.dataset.sound);
+        audio.play();
+      }
+    </script>
+  </body>
+</html>

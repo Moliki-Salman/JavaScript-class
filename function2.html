@@ -16,15 +16,18 @@
         background-color: red;
         cursor: pointer;
       }
+      #result {
+        display: flex;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="item" id="coke">
-        <img src="images/coke.webp" class="item" />
+        <img src="/coke.avif" id="cokeImage" class="item" />
       </div>
       <div class="item" id="fanta">
-        <img src="images/fanta.webp" class="item" />
+        <img src="/fanta.jpeg" id="fantaImage" class="item" />
       </div>
     </div>
     <div>
@@ -35,34 +38,104 @@
         <input id="quantity" type="number" placeholder="quantity" />
       </p>
       <button id="enter">Enter</button>
+      <div id="result">
+        <!-- <img src="/fanta.jpeg" id="fantaImage" class="item"> -->
+      </div>
     </div>
     <script>
       var cokeBtn = document.getElementById("coke");
       var fantaBtn = document.getElementById("fanta");
       var amount = document.getElementById("amount");
       var quantity = document.getElementById("quantity");
+      var result = document.getElementById("result");
+      // creating a global variable to hold the selected drink
+      let selectedItem = "";
       cokeBtn.addEventListener("click", function () {
         alert("coke selected, price : 250 ");
+        selectedItem = "coke";
+        console.log(selectedItem);
       });
       fantaBtn.addEventListener("click", function () {
         alert("fanta selected, price : 350 ");
+        selectedItem = "fanta";
+        console.log(selectedItem);
       });
-      processor = (sDrink, amount, quantity) => {
+      var enter = document.getElementById("enter");
+      enter.addEventListener("click", function () {
+        let fAmount = parseFloat(amount.value);
+        let fquantity = parseFloat(quantity.value);
+        processor(selectedItem, fAmount, fquantity);
+      });
+      processor = (selectedItem, amount, quantity) => {
+        // checking the amount
+        // processing the request
         let res = "";
-        if (sDrink == "coke") {
+        if (selectedItem == "coke") {
           if (amount >= 250 * quantity) {
+            pusher(quantity);
+
+          } else {
+            res = "Invalid amount";
+            return res;
+          }
+        } else if (selectedItem == "fanta") {
+          if (amount >= 350 * quantity) {
+            pusher(quantity);
           } else {
             res = "Invalid amount";
             return res;
           }
         }
       };
-      pusher = (qty) => {
+      /*pusher = (qty) => {
+        var cokeSrc = "/coke.avif";
+        var fantaSrc = "/fanta.jpeg";
+        let drink = document.createElement("img");
+        drink.style.height = "150px";
+        drink.style.width = "150px";
+        if (selectedItem == "coke") {
+          drink.src = cokeSrc;
+        } else {
+          drink.src = fantaSrc;
+        }
+        console.log(cokeSrc);
         for (let i = 0; i < qty; i++) {
-          console.log("coke");
+          console.log(i);
+          result.innerHTML =
+            result.innerHTML + ` <img src="${drink.src}" id="" class="item">`;
         }
       };
-      pusher(10);
+      // processor("coke",250,4);
+      //pusher(10)*/
+
+       pusher = (qty) => {
+        var cokeSrc = "/coke.avif";
+        var fantaSrc = "/fanta.jpeg";
+        console.log(cokeSrc);
+
+        //I moved the creation of the element into the forloop.
+        //In the previous code, we created the element, which gave us one image and we now to appended that one image. The loop runs for the number of times in qty but only gave us one image because that is what we gave to it.
+        //But now we create a new image element inside the loop for each iteration.
+        //I hope this comment helped in explaining the code
+
+        for (let i = 0; i < qty; i++) {
+          let drink = document.createElement("img");
+          drink.style.height = "150px";
+          drink.style.width = "150px";
+
+          if (selectedItem == "coke") {
+            drink.src = cokeSrc;
+          } else {
+            drink.src = fantaSrc;
+          }
+          console.log(i);
+          result.appendChild(drink);
+
+          //   result.innerHTML =
+          //     result.innerHTML + ` <img src="${drink.src}" id="" class="item">`;
+        }
+      };
+
     </script>
-  </body>
+  </body
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <p>
+    <input type="text" id="make" placeholder="make">
+   </p>
+   <p>
+    <input type="text" id="model" value="" placeholder="model">
+   </p>
+   <p>
+    <input type="number" id="year" placeholder="year">
+   </p>
+   <p>
+    <input type="text" id="color" placeholder="color">
+   </p>
+    <button  id="addtolistBtn"> add to list</button>
+    <script>
+  let carList =[];
+  let carprototype ={
+    carModel:null,
+    carColor: null,
+    carYear: null,
+    carMake:null,
+}
+//to display the list of car added in the array
+displayList = ()=>{
+    console.log(carList)
+}
+const addtolistBtn = document.getElementById("addtolistBtn")
+const makeTxt = document.getElementById("make")
+const modelTxt = document.getElementById("model")
+const colorTxt = document.getElementById("color")
+const yearTxt = document.getElementById("year")
+
+addtolistBtn.addEventListener("click",function(){
+let newCar = Object.create(carprototype)
+newCar.carModel = modelTxt.value;
+newCar.carColor = colorTxt.value;
+newCar.carYear = yearTxt.value;
+newCar.carMake = makeTxt.value;
+carList.push(newCar)
+
+
+displayList()
+})
+    </script>
+</body>
+</html>
